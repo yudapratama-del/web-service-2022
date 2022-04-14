@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SoalController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PortofolioController;
 
 /*
@@ -40,3 +42,11 @@ Route::get('/contact', function () {
     ]);
 
 });
+
+//route untuk mahasiswa
+Route::get('data-mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('create-mahasiswa', [MahasiswaController::class, 'create'])->name('mahasiswa.create');;
+//route untuk Soal
+Route::get('info-soal', [SoalController::class, 'index']);
+Route::get('add-soal', [SoalController::class, 'create'])->name('soal.create');
+Route::post('store-soal', [SoalController::class, 'store'])->name('soal.store');
